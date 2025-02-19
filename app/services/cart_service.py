@@ -10,7 +10,8 @@ class CartService:
     async def add_to_cart(self,product_id: int, quantity: int):
         """Adds an item to the cart or updates the exsisting quantity"""
         if quantity <=0:
-            raise HTTPException(status_code=400,detail='Quantity must be gretar than 0')
+            raise HTTPException(status_code=400, detail="Quantity must be greater than 0")
+
         
         for item in self.cart_items:
             if item['product_id']==product_id:
@@ -31,7 +32,7 @@ class CartService:
     
     async def clear_cart(self):
         """Clear the cart after checkout."""
-        return self.cart_items;
+        self.cart_items=[];
     
  #singleton Instance to manage the state   
 cart_service=CartService()
