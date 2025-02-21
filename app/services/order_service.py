@@ -4,7 +4,7 @@ from fastapi import HTTPException
 
 class OrderService:
     def __init__(self):
-        self.orders=List[Dict]=[]
+        self.orders:List[Dict]=[]
         self.order_count=0
         self.total_purchase_amount=0
         self.total_discount_amount=0

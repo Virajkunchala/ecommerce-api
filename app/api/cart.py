@@ -19,13 +19,11 @@ async def add_item_to_cart(item: CartItem):
 
 @router.get("/")
 async def view_cart():
-    cart = await cart_service.get_cart_items()
-    return {"cart": cart}
+    return await cart_service.get_cart_items()
 
 @router.post("/clear")
 async def clear_cart():
-    await cart_service.clear_cart() 
-    return{"message":"Cart cleared successfully"}
+    return await cart_service.clear_cart() 
 
 # @router.post("/checkout")
 # async def checkout(discount_code:str=None,cart_service: CartService = Depends()):
