@@ -11,12 +11,12 @@ async def test_add_to_cart():
     cart=await cart_service.add_to_cart(1,1)
     
     assert len(cart)==1
-    assert cart[0]['product_id']== 1
-    assert cart[0]['quantity']== 1
+    assert cart["cart"][0]['product_id'] == 1
+    assert cart["cart"][0]["quantity"] == 1
     
     # Add same item again (should increase quantity)
     cart=await cart_service.add_to_cart(1,2)
-    assert cart[0]['quantity']== 3
+    assert cart["cart"][0]['quantity'] == 3
   
 @pytest.mark.asyncio
 async def test_add_invalid_quantity():
@@ -36,8 +36,8 @@ async def test_get_cart_items():
     cart = await cart_service.get_cart_items()
     
     assert len(cart) == 1
-    assert cart[0]["product_id"] == 1
-    assert cart[0]["quantity"] == 1
+    assert cart["cart"][0]['product_id'] == 1
+    assert cart["cart"][0]["quantity"] == 1
         
 @pytest.mark.asyncio
 async def test_clear_cart():
@@ -46,7 +46,8 @@ async def test_clear_cart():
     await cart_service.add_to_cart(1, 2)
     await cart_service.clear_cart()
     
-    cart = await cart_service.get_cart_items()
+    cart_response  = await cart_service.get_cart_items()
+    cart = cart_response['cart']
     assert len(cart) == 0
     
     

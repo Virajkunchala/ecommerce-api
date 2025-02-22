@@ -7,7 +7,7 @@ router = APIRouter()
 
 
 
-@router.post("/add")
+@router.post("/items")
 async def add_item_to_cart(item: CartItem):
     try:
         updated_cart = await cart_service.add_to_cart(item.product_id, item.quantity)
@@ -25,10 +25,3 @@ async def view_cart():
 async def clear_cart():
     return await cart_service.clear_cart() 
 
-# @router.post("/checkout")
-# async def checkout(discount_code:str=None,cart_service: CartService = Depends()):
-#     try:
-#         response = await cart_service.checkout(discount_code)
-#         return response
-#     except Exception as e:
-#         raise HTTPException(status_code=400,detail=str(e))

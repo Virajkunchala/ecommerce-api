@@ -13,9 +13,12 @@ app.include_router(orders.router,prefix='/order',tags=["Order"])
 
 app.include_router(discounts.router,prefix='/discount',tags=["Discount"])
 
-app.include_router(admin.router,prefix='/admin',tags=["admin"])
 
-# app.include_router(discounts.router,prefix='/discount',tags=["Discount"])
+app.include_router(orders.router,prefix='/checkout',tags=["Checkout"])
+
+
+app.include_router(admin.router,prefix='/admin',tags=["Admin"])
+
 
 
 
