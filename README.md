@@ -25,14 +25,20 @@ The application uses an in-memory store to manage the following:
 **Endpoint**: `/cart/items`  
 **Method**: `POST`
 
-**Description**: Adds an item to the cart with the specified `product_id` and `quantity`. The prices have been hardcoded to simplify the implementation, as they were not specified in the documentation.
+**Description**: Adds an item to the cart with the specified `product_id` and `quantity`. 
+The prices have been hardcoded to simplify the implementation, as they were not specified in the documentation.
 
-Product ID	Price (₹)
-    1	    100
-    2	    200
-    3	    50
-    4	    150
-    5	    400
+## 🛒 Valid Product IDs & Prices
+
+| Product ID | Price (₹) |
+|------------|---------|
+| 1          | 100     |
+| 2          | 200     |
+| 3          | 50      |
+| 4          | 150     |
+| 5          | 400     |
+
+🔹 Make sure to use **only the product IDs listed above** when adding items to the cart. 
 
 **Request Body (JSON)**:
 ```json
