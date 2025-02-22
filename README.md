@@ -27,6 +27,13 @@ The application uses an in-memory store to manage the following:
 
 **Description**: Adds an item to the cart with the specified `product_id` and `quantity`. The prices have been hardcoded to simplify the implementation, as they were not specified in the documentation.
 
+Product ID	Price (₹)
+    1	    100
+    2	    200
+    3	    50
+    4	    150
+    5	    400
+
 **Request Body (JSON)**:
 ```json
 {
@@ -169,9 +176,11 @@ Response (Success):
 ```
 
 ## Assumptions
-No Backend Store: The data is stored in memory and will be lost once the server is restarted.
+No Backend Store: The data is stored in memory and will be lost once the server is restarted...
+
 Discount Code Usage: Discount codes can only be used once per customer and are generated after every nth order.
-Testing
+
+## Testing
 The project includes unit tests to validate the functionality of the application. To run the tests, use the following command:
 
   ```bash

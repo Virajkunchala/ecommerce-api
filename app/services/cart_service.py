@@ -2,7 +2,7 @@ from typing import List, Dict,Any
 from pydantic import BaseModel
 from fastapi import HTTPException
 
-PRODUCT_PRICES = {1: 100, 2: 200, 3: 50}  # Product price lookup
+PRODUCT_PRICES = {1: 100, 2: 200, 3: 50,4:150,5:400}  # Product price lookup
 
 
 class CartService:
@@ -40,7 +40,7 @@ class CartService:
     
     async def clear_cart(self):
         """Clear the cart after checkout."""
-        self.cart_items=[];
+        self.cart_items=[]
         return {"message": "Cart cleared successfully"}
     
  #singleton Instance to manage the state   
