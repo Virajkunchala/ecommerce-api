@@ -11,7 +11,9 @@ router = APIRouter()
 async def add_item_to_cart(item: CartItem):
     try:
         updated_cart = await cart_service.add_to_cart(item.product_id, item.quantity)
-        return {"message": "Item added to cart", "cart": updated_cart}
+        return {"message": "Item added to cart", "cart": updated_cart["cart"]}
+    except HTTPException as e: 
+        raise e
     except ValidationError as ve:
         raise HTTPException(status_code=400, detail=f"Invalid data: {ve.errors()}")
     except Exception as e:
