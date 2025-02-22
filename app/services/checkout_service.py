@@ -29,16 +29,16 @@ class CheckoutService:
             is_valid = await discount_service.validate_discount_code(discount_code)
             if is_valid:
                 discount_applied_amount = await discount_service.apply_discount(total_amount, discount_code)
-                applied_discount_code = discount_code  # Store the applied code
+                applied_discount_code = discount_code  # Store code
                 total_amount -= discount_applied_amount
-                await discount_service.mark_discount_as_used(discount_code)  # Mark as used after successful application
+                await discount_service.mark_discount_as_used(discount_code)  # Mark as used
             else:
                 raise HTTPException(status_code=400, detail="Invalid or expired discount code")
 
         # Place the order
         order_response = await order_service.place_order(cart_items, total_amount, discount_applied_amount, applied_discount_code)
 
-        # Check if the order qualifies for a discount (nth order logic)
+        # Check if the order qualifies for a discount
         if await order_service.is_nth_order():
             new_discount_code = await discount_service.generate_discount_code()
             order_response['new_discount_code_generated'] = new_discount_code
