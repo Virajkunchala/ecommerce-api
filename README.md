@@ -193,6 +193,6 @@ To run the FastAPI server locally:
   ```bash
 uvicorn main:app --reload
 
-  ```bash
+  ```
 
 After the server is running, you can interact with the endpoints using tools like curl, Postman, or any REST client.
